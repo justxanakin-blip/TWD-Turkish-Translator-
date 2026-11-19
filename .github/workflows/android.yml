@@ -50,10 +50,10 @@ jobs:
               }
           }
           EOF
-          plugins {
+          
               id 'com.android.application' version '8.6.1' apply false
           }
-          EOF
+          
           echo "android.useAndroidX=true" > gradle.properties
           gradle -p . assembleDebug
         
