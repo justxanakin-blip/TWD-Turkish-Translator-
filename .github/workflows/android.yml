@@ -52,7 +52,7 @@ jobs:
           EOF
           
               
-          }
+          
           
           echo "android.useAndroidX=true" > gradle.properties
           gradle -p . assembleDebug
