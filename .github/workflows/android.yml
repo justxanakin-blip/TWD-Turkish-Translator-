@@ -39,9 +39,9 @@ jobs:
               id 'com.android.application' version '8.6.1' apply false
           }
           EOF
-
+          echo "android.useAndroidX=true" > gradle.properties
           gradle -p . assembleDebug
-
+        
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
