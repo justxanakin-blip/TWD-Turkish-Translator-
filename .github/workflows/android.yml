@@ -34,7 +34,22 @@ jobs:
           include ':app'
           EOF
 
-          cat > build.gradle <<'EOF'
+                    cat > build.gradle <<'EOF'
+          plugins {
+              id 'com.android.application' version '8.6.1' apply false
+          }
+          EOF
+                    cat >> app/build.gradle <<'EOF'
+
+          configurations.all {
+              resolutionStrategy.eachDependency { details ->
+                  if (details.requested.group == 'org.jetbrains.kotlin' &&
+                      details.requested.name in ['kotlin-stdlib', 'kotlin-stdlib-jdk7', 'kotlin-stdlib-jdk8']) {
+                      details.useVersion '1.8.22'
+                  }
+              }
+          }
+          EOF
           plugins {
               id 'com.android.application' version '8.6.1' apply false
           }
