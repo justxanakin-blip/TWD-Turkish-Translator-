@@ -51,7 +51,7 @@ jobs:
           }
           EOF
           
-              id 'com.android.application' version '8.6.1' apply false
+              
           }
           
           echo "android.useAndroidX=true" > gradle.properties
